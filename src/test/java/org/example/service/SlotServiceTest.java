@@ -1,8 +1,6 @@
 package org.example.service;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 
@@ -19,7 +17,7 @@ public class SlotServiceTest {
 	@Test
 	public void overallOfferListTest() {
 		slotService.addAllOffers();
-		assertNotNull(slotService.overallOffer());
+		assertEquals(slotService.overallOffer(), 5);
 	}
 
 }

@@ -6,7 +6,7 @@ public class Slot {
 
 	private Integer end;
 
-	private Integer quantity;
+	private Integer quantity = 0;
 
 	public Slot(Integer start, Integer end) {
 		this.start = start;

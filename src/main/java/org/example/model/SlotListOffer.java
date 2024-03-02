@@ -36,8 +36,28 @@ public class SlotListOffer extends SlotList {
 
 		}
 
+		setAmount(overallOfferList);
+
 		return overallOfferList;
 
+	}
+
+	private List<Slot> setAmount(List<Slot> list) {
+
+		for (Slot slot : list) {
+
+			for (List<Slot> listSlots : this.getList()) {
+				for (Slot slot2 : listSlots) {
+					if (slot.getStart() == slot2.getStart()
+							|| (slot2.getStart() >= slot.getStart() && slot2.getStart() < slot.getEnd())) {
+						slot.setQuantity(slot.getQuantity() + slot2.getQuantity());
+					}
+				}
+			}
+
+		}
+
+		return null;
 	}
 
 	private Set<Integer> getEndStartAll() {
