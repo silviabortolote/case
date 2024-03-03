@@ -17,7 +17,7 @@ public class SlotService {
 	public void addAllOffers() {
 
 		List<Slot> offer1 = new ArrayList<Slot>();
-		Slot s11 = new Slot(0, 4, 2);
+		Slot s11 = new Slot(0, 4, 1);
 		Slot s12 = new Slot(6, 8, 2);
 		offer1.add(s11);
 		offer1.add(s12);

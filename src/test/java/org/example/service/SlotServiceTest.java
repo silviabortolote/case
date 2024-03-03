@@ -17,7 +17,7 @@ public class SlotServiceTest {
 	@Test
 	public void overallOfferListTest() {
 		slotService.addAllOffers();
-		assertEquals(slotService.overallOffer(), 5);
+		assertEquals(slotService.overallOffer(), 4);
 	}
 
 }
