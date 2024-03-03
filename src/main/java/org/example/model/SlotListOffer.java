@@ -1,6 +1,7 @@
 package org.example.model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -33,7 +34,7 @@ public class SlotListOffer extends SlotList {
 		// remove slot without quantities
 		overallOfferList.removeIf(value -> value.getQuantity() == 0);
 
-		return overallOfferList;
+		return joinSameAmount(overallOfferList);
 
 	}
 
@@ -56,6 +57,33 @@ public class SlotListOffer extends SlotList {
 
 			}
 		}
+
+	}
+
+	// join slots with the same quantities
+	private List<Slot> joinSameAmount(List<Slot> overallOfferList) {
+
+		Slot[] slots = overallOfferList.toArray(new Slot[overallOfferList.size()]);
+
+		List<Slot> overallOfferListFinal = new ArrayList<Slot>();
+
+		for (int i = 0; i < slots.length; i++) {
+
+			Integer start = slots[i].getStart();
+			Integer end = slots[i].getEnd();
+
+			// checks if the next slot in the list has the same amount
+			while ((i + 1 < slots.length) && slots[i + 1].getQuantity() == slots[i].getQuantity()) {
+				end = slots[i + 1].getEnd();
+				i++;
+			}
+
+			Slot slotResult = new Slot(start, end, slots[i].getQuantity());
+			System.out.print(slotResult);
+			overallOfferListFinal.add(slotResult);
+
+		}
+		return overallOfferListFinal;
 
 	}
 
