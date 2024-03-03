@@ -22,13 +22,6 @@ public class SlotListOffer extends SlotList {
 				int start = array[index];
 				int end = array[index + 1];
 
-				// there is no slot that starts with the value
-				// and is not in the middle of any quantity in the slot
-				while (!isSlotStartValue(array[index + 1]) && isBetweenAmount(array[index + 1])) {
-					++index;
-					end = array[index + 1];
-				}
-
 				Slot slot = new Slot(start, end);
 				overallOfferList.add(slot);
 
@@ -42,22 +35,25 @@ public class SlotListOffer extends SlotList {
 
 	}
 
-	private List<Slot> setAmount(List<Slot> list) {
+	private void setAmount(List<Slot> overallOfferList) {
 
-		for (Slot slot : list) {
+		for (Slot indexesSlot : overallOfferList) {
 
-			for (List<Slot> listSlots : this.getList()) {
-				for (Slot slot2 : listSlots) {
-					if (slot.getStart() == slot2.getStart()
-							|| (slot2.getStart() >= slot.getStart() && slot2.getStart() < slot.getEnd())) {
-						slot.setQuantity(slot.getQuantity() + slot2.getQuantity());
+			for (List<Slot> slotList : this.getList()) {
+				for (Slot slot : slotList) {
+
+					// Verifica se indexesSlot estao entre os slots
+					if (indexesSlot.getStart() >= slot.getStart() && indexesSlot.getEnd() <= slot.getEnd()) {
+						System.out.println(slot);
+						System.out.println(indexesSlot);
+						System.out.println();
 					}
-				}
-			}
 
+				}
+
+			}
 		}
 
-		return null;
 	}
 
 	private Set<Integer> getEndStartAll() {
@@ -74,34 +70,5 @@ public class SlotListOffer extends SlotList {
 		return list;
 	}
 
-	// checks if it is a slot start value
-	private boolean isSlotStartValue(int value) {
-
-		for (List<Slot> slotList : this.getList()) {
-			for (Slot slot : slotList) {
-				if (slot.getStart() == value) {
-					return true;
-				}
-			}
-
-		}
-
-		return false;
-	}
-
-	// the value is between some amount of some slot
-	private boolean isBetweenAmount(int value) {
-
-		for (List<Slot> slotList : this.getList()) {
-			for (Slot slot : slotList) {
-				if (slot.getStart() < value && slot.getEnd() > value) {
-					return true;
-				}
-			}
-
-		}
-
-		return false;
-	}
 
 }

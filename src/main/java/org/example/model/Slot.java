@@ -43,4 +43,11 @@ public class Slot {
 		this.quantity = quantity;
 	}
 
+	@Override
+	public String toString() {
+		return "Slot [start=" + start + ", end=" + end + ", quantity=" + quantity + "]";
+	}
+	
+	
+
 }
