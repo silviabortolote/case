@@ -47,7 +47,5 @@ public class Slot {
 	public String toString() {
 		return "Slot [start=" + start + ", end=" + end + ", quantity=" + quantity + "]";
 	}
-	
-	
 
 }

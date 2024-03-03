@@ -1,14 +1,14 @@
 package org.example.model;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
 public class SlotListOffer extends SlotList {
 
-	public List<Slot> getOverallOffer() {
+	// returns the global offer
+	public List<Slot> getGlobalOffer() {
 
 		List<Slot> overallOfferList = null;
 
@@ -29,6 +29,7 @@ public class SlotListOffer extends SlotList {
 			}
 		}
 
+		// the quantity in the slots
 		setAmount(overallOfferList);
 
 		// remove slot without quantities
@@ -38,6 +39,7 @@ public class SlotListOffer extends SlotList {
 
 	}
 
+	// set the quantity in the slots
 	private void setAmount(List<Slot> overallOfferList) {
 
 		for (Slot indexesSlot : overallOfferList) {
@@ -47,9 +49,6 @@ public class SlotListOffer extends SlotList {
 
 					// Checks if indexesSlot are between slots
 					if (indexesSlot.getStart() >= slot.getStart() && indexesSlot.getEnd() <= slot.getEnd()) {
-						System.out.println(slot);
-						System.out.println(indexesSlot);
-						System.out.println();
 						indexesSlot.setQuantity(indexesSlot.getQuantity() + slot.getQuantity());
 					}
 
@@ -87,6 +86,8 @@ public class SlotListOffer extends SlotList {
 
 	}
 
+	// returns a list of non-repeating elements with all start and end indexes of
+	// all slots
 	private Set<Integer> getEndStartAll() {
 
 		Set<Integer> list = new TreeSet<Integer>();

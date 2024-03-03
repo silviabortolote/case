@@ -14,6 +14,7 @@ public class SlotService {
 
 	private SlotListDemand demands = new SlotListDemand();
 
+	// add offers
 	public void addAllOffers() {
 
 		List<Slot> offer1 = new ArrayList<Slot>();
@@ -33,10 +34,12 @@ public class SlotService {
 		offers.add(offer2);
 	}
 
-	public List<Slot> overallOffer() {
-		return offers.getOverallOffer();
+	// returns the global offer
+	public List<Slot> globalOffer() {
+		return offers.getGlobalOffer();
 	}
 
+	// add demands
 	public void addAllDemands() {
 
 	}
