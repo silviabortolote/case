@@ -11,4 +11,4 @@ SlotService: class that defines the functionalities
 
 Improvements to be made: 
 -> Improve the performance of the SlotList class
--> Make slot class attributes (start, end, quantity) generic
+-> Implement the method to compareTo the slot class
