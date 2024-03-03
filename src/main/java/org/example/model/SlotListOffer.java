@@ -10,12 +10,12 @@ public class SlotListOffer extends SlotList {
 	// returns the global offer
 	public List<Slot> getGlobalOffer() {
 
-		List<Slot> overallOfferList = null;
+		List<Slot> globalOfferList = null;
 
 		Set<Integer> list = getEndStartAll();
 
 		if (!list.isEmpty()) {
-			overallOfferList = new ArrayList<Slot>();
+			globalOfferList = new ArrayList<Slot>();
 			int[] array = list.stream().mapToInt(Integer::intValue).toArray();
 
 			for (int index = 0; index < array.length - 1; index++) {
@@ -24,23 +24,24 @@ public class SlotListOffer extends SlotList {
 				int end = array[index + 1];
 
 				Slot slot = new Slot(start, end);
-				overallOfferList.add(slot);
+				globalOfferList.add(slot);
 
 			}
 		}
 
 		// the quantity in the slots
-		setAmount(overallOfferList);
+		setQuantity(globalOfferList);
 
 		// remove slot without quantities
-		overallOfferList.removeIf(value -> value.getQuantity() == 0);
+		globalOfferList.removeIf(value -> value.getQuantity() == 0);
 
-		return joinSameAmount(overallOfferList);
+		// join slots with the same quantities
+		return joinSameQuantity(globalOfferList);
 
 	}
 
 	// set the quantity in the slots
-	private void setAmount(List<Slot> overallOfferList) {
+	private void setQuantity(List<Slot> overallOfferList) {
 
 		for (Slot indexesSlot : overallOfferList) {
 
@@ -60,7 +61,7 @@ public class SlotListOffer extends SlotList {
 	}
 
 	// join slots with the same quantities
-	private List<Slot> joinSameAmount(List<Slot> overallOfferList) {
+	private List<Slot> joinSameQuantity(List<Slot> overallOfferList) {
 
 		Slot[] slots = overallOfferList.toArray(new Slot[overallOfferList.size()]);
 
