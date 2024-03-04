@@ -6,6 +6,8 @@ dependencies: junit 4.12 <br />
 # 
 
 Slot: representation of a demand or offer slot <br />
+SlotOffer: representation of an offer slot
+SlotDemand: representation of a demand slot <br />
 SlotList: represents the list of slots list <br />
 SlotListOffer: specific to the offers <br />
 SlotListDemand: specific to the demands <br />
