@@ -1,8 +1,8 @@
 package org.example.model;
 
-public class Slot implements Comparable<Slot>{
+public abstract class Slot implements Comparable<Slot> {
 
-	private Integer start;
+	protected Integer start;
 
 	private Integer end;
 
@@ -48,11 +48,6 @@ public class Slot implements Comparable<Slot>{
 		return "Slot [start=" + start + ", end=" + end + ", quantity=" + quantity + "]";
 	}
 
-	// compare two niches to know if there is intercession
-	@Override
-	public int compareTo(Slot o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	public abstract int compareTo(Slot slot);
 
 }

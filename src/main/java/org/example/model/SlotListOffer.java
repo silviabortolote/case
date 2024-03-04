@@ -23,7 +23,7 @@ public class SlotListOffer extends SlotList {
 				int start = array[index];
 				int end = array[index + 1];
 
-				Slot slot = new Slot(start, end);
+				Slot slot = new SlotOffer(start, end);
 				globalOfferList.add(slot);
 
 			}
@@ -31,6 +31,8 @@ public class SlotListOffer extends SlotList {
 
 		// the quantity in the slots
 		setQuantity(globalOfferList);
+
+		System.out.println(globalOfferList);
 
 		// remove slot without quantities
 		globalOfferList.removeIf(value -> value.getQuantity() == 0);
@@ -48,8 +50,7 @@ public class SlotListOffer extends SlotList {
 			for (List<Slot> slotList : this.getList()) {
 				for (Slot slot : slotList) {
 
-					// Checks if indexesSlot are between slots
-					if (indexesSlot.getStart() >= slot.getStart() && indexesSlot.getEnd() <= slot.getEnd()) {
+					if (indexesSlot.compareTo(slot) >= 0) {
 						indexesSlot.setQuantity(indexesSlot.getQuantity() + slot.getQuantity());
 					}
 
@@ -78,7 +79,7 @@ public class SlotListOffer extends SlotList {
 				i++;
 			}
 
-			Slot slotResult = new Slot(start, end, slots[i].getQuantity());
+			Slot slotResult = new SlotOffer(start, end, slots[i].getQuantity());
 			System.out.print(slotResult);
 			overallOfferListFinal.add(slotResult);
 
