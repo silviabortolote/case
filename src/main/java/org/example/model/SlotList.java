@@ -5,6 +5,8 @@ import java.util.List;
 
 public class SlotList {
 
+	// private Slot[][] arrays = new Slot[][] { slot1, slot2, slot3, ...};
+	
 	private List<List<Slot>> list = new ArrayList<List<Slot>>();
 
 	// add slot list

@@ -14,6 +14,6 @@ SlotListDemand: specific to the demands <br />
 SlotService: class that defines the functionalities <br />
 
 # Improvements to be made: 
-- Improve the performance of the SlotList class <br />
+- Improve the performance of the SlotList class list of list to arrays <br /> 
 https://www.baeldung.com/java-list-of-lists <br />
 - Implement the method to compareTo the SlotDemand class <br />
