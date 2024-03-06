@@ -15,4 +15,5 @@ SlotService: class that defines the functionalities <br />
 
 # Improvements to be made: 
 - Improve the performance of the SlotList class <br />
+https://www.baeldung.com/java-list-of-lists <br />
 - Implement the method to compareTo the SlotDemand class <br />
